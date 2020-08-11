@@ -115,8 +115,6 @@ const datos=data =>{
             html+=li;
         });
         producto.innerHTML=html;
-    }else{
-        producto.innerHTML='<p class="text-center">iniciar sesion</p>'
     }
 }
 //events
