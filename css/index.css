@@ -1,0 +1,42 @@
+
+#pielogo{
+    width: 100%;
+    padding: 2%;
+    background-color: #161718;
+    overflow: hidden;
+}
+
+#pielogo >div{
+    width: 960px;
+    margin: 0px auto;
+    background-color: #9fc8d9;
+    border-radius: 10px;
+}
+
+.seccionpie{
+    float: left;
+    width: 270px;
+    padding: 25px;
+}
+
+.seccionpie h1{
+    font: bold 20px Arial,sans-serif;
+    text-decoration: none;
+}
+
+.seccionpie p{
+    margin-top: 5px;
+}
+
+.seccionpie a{
+    font: bold 16px Arial,sans-serif;
+    color: #bee9ec;
+    text-decoration: none;
+}
+
+.seccionpie{
+    float: left;
+    width: 27.33%;
+    padding: 3%;
+    color: #ffffff;
+}
