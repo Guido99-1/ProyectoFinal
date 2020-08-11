@@ -9,7 +9,7 @@
 #pielogo >div{
     width: 960px;
     margin: 0px auto;
-    background-color: #9fc8d9;
+    background-color: #fcfdfd;
     border-radius: 10px;
 }
 
@@ -30,7 +30,7 @@
 
 .seccionpie a{
     font: bold 16px Arial,sans-serif;
-    color: #bee9ec;
+    color: #fcfcfc;
     text-decoration: none;
 }
 
