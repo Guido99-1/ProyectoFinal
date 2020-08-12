@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Pagar</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="css/estilo.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- class="d-flex" -->
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-secondary text-white" id="sidebar-wrapper">
+      <div class="container">
+        <h1>LOGO</h1>
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Inicio</a>
+        <a href="ResumenGestion.html" class="list-group-item list-group-item-action bg-light">Seguir Comprando</a>
+      </div>
+    </div>
+    <div id="page-content-wrapper">
+      <div class="bg-secondary text-white">
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1>Caja</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Sesion
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Salir</a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div id="app">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"></th>
+                        <th>Producto</th>
+                        <th style="width: 250px;">Nombre</th>
+                        <th style="width: 250px;">Descripcion</th>
+                        <th style="width: 250px;">Precio</th>
+                        <th style="width: 250px;">Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+ 
+                    <tr v-for="item, index in items"> 
+                        <td>
+                            <button type="button" class="btn btn-danger btn-xs" v-on:click="remove(index)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                        <td><img src="imagen/pizaa.jpg" width="80" height="40"> </td>
+                        <td> Pizza </td>
+                        <td> Alto en calorias </td>
+                        <td> 5.00 </td>
+                        <td ><input id="number" type="number" value="42"></td>
+                    </tr>
+                    <tr v-for="item, index in items"> 
+                        <td>
+                            <button type="button" class="btn btn-danger btn-xs" v-on:click="remove(index)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                        <td><img src="imagen/pizaa.jpg" width="80" height="40"> </td>
+                        <td> Hamburguesa </td>
+                        <td> Alto en calorias </td>
+                        <td> 1.80 </td>
+                        <td ><input id="number" type="number" value="32"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div  id="app">
+            <table class="table table-stripped">
+
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td class="text-right"> Número de Articulos</td>
+                        <td>42</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="text-right">Subototal</td>
+                        <td>36.96</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="text-right"> Iva</td>
+                        <td>5.04</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="text-right"> Total</td>
+                        <td>42</td>
+                        <td></td>
+                    </tr>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<footer id="pielogo">
+<section class="seccionpie">
+  <h1>Sitio web</h1>
+  <div class="display-4">
+    <a href=""><i class="fab fa-facebook pr-3"></i></a>
+
+    <i class="fab fa-whatsapp pr-3"></i>
+    <i class="fab fa-instagram pr-3"></i>
+  </div>
+</section>
+<section class="seccionpie">
+  <h1>Ayuda</h1>
+  <p><a href="Contactanos.html">Contacto</a></p>
+</section>
+<section class="seccionpie" style="padding-right: 50px;">
+  <address>Tungurahua, Ecuador</address>
+  <small>&copy;Derechos Reservados 2020 <br> Guido Reyes<br>Edison Manzano<br>Jose Villacres<br>FranklinLopez</small>
+</section>
+<div class="recuperar"></div>
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+<!-- Menu Toggle Script -->
+</body>
+
+</html>
