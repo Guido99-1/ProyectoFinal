@@ -1,0 +1,17 @@
+body{
+    padding-top: 65px;
+}
+
+
+.cabeceraProducto{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+    background-color: black;
+    color:white;
+}
+
+
+.espaciador{
+    min-height: 30px;
+}
