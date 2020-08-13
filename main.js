@@ -17,10 +17,8 @@ formulario.addEventListener('submit', (e) => {
 
             //close the modal
             $('#signupModal').modal('hide')
-
-
             console.log('sign up');
-            //window.location.replace("https://firebase.google.com/");
+            window.location.replace("cliente.html");
         })
 });
 ////LOGIN
@@ -42,20 +40,21 @@ Formlogin.addEventListener('submit', (e) => {
             //close the modal
             $('#signupModal').modal('hide')
             console.log('sign up');
+            window.location.replace("cliente.html");
         })
          .catch(err=>{
             alert('Contraseña o correo INCORRECTOS')
          })
 })
 
-
-const salir = document.querySelector('#salir');
-salir.addEventListener('click', e => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-        console.log('sign out')
-    })
-});
+//
+// const salir = document.querySelector('#salir');
+// salir.addEventListener('click', e => {
+//     e.preventDefault();
+//     auth.signOut().then(() => {
+//         console.log('sign out')
+//     })
+// });
 
 //google
 
@@ -73,6 +72,7 @@ btngoogle.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
+            window.location.replace("cliente.html");
     })
     .catch(err=>{
         console.log(err)
@@ -90,6 +90,7 @@ btnfacebook.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
+            window.location.replace("cliente.html");
     })
     .catch(err=>{
         console.log(err)
