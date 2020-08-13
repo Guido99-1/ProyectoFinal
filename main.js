@@ -1,6 +1,11 @@
+function hacer_click()
+{
+    $('#loginModal').modal('hide')
+    $("#signupModal").modal("show");
+}
+
 ///REGISTRO
 const formulario = document.querySelector('#form');
-
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -59,8 +64,6 @@ Formlogin.addEventListener('submit', (e) => {
 //google
 
 const btngoogle= document.querySelector('#googlelogin')
-
-
 btngoogle.addEventListener('click', e=>{
     const google= new firebase.auth.GoogleAuthProvider();
 
