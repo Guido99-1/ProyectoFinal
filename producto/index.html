@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="custom.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,18 +20,48 @@
 
     <title>Gestión de Productos con Firebase</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html" title="Inicio">Inicio</a></li>
-                <li><a href="administracion.html" title="">Administracion</a></li>
-                <li><a href="nuevoproducto.html" title="">Añadir Productos</a></li>
+    <nav class="navbar navbar-expand-lg navbar-green bg-dark border-bottom" style="margin-top: -64px;">
+        <button class="btn btn-primary" id="menu-toggle">MENU</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="administracion.html" title="">Administracion</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="nuevoproducto.html" title="">Añadir Productos </a>
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="container-fluid" id="listado">
+  <br>
+    <div class="table-responsive">
         <h1>Listado de Productos</h1>
+        <div class="container-fluid" id="">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Articulo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody id="listado">
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
+
 </html>

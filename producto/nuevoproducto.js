@@ -2,14 +2,13 @@ $(document).ready(function()
  {
     // Inicializar la base de datos
     var config = {
-        apiKey: "AIzaSyBw4wTxbL8Sl28lukTiYlgKyAVfHx2dUvs",
-        authDomain: "tecnologiasweb-fd965.firebaseapp.com",
-        databaseURL: "https://tecnologiasweb-fd965.firebaseio.com",
-        projectId: "tecnologiasweb-fd965",
-        storageBucket: "tecnologiasweb-fd965.appspot.com",
-        messagingSenderId: "900369849939",
-        appId: "1:900369849939:web:b69d6deeb06252ded330a6",
-        measurementId: "G-V525SV3WQ3"
+        apiKey: "AIzaSyDmSgbd1fC4137aOFsl_onDafluxmZB6y4",
+        authDomain: "prueba2-a725c.firebaseapp.com",
+        databaseURL: "https://prueba2-a725c.firebaseio.com",
+        projectId: "prueba2-a725c",
+        storageBucket: "prueba2-a725c.appspot.com",
+        messagingSenderId: "422920973317",
+        appId: "1:422920973317:web:0738836eb10d1e40de806c"
     };
     firebase.initializeApp(config);
 
