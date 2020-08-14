@@ -23,7 +23,7 @@ formulario.addEventListener('submit', (e) => {
             //close the modal
             $('#signupModal').modal('hide')
             console.log('sign up');
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
         })
 });
 ////LOGIN
