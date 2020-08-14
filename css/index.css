@@ -4,6 +4,7 @@
     padding: 2%;
     background-color: #161718;
     overflow: hidden;
+    margin-top: 40px;
 }
 
 #pielogo >div{
@@ -43,3 +44,7 @@
 #tablasProducto{
     margin-top: 50px;
 }
+.img {
+    max-width: 100%;
+    height: auto;
+  }

@@ -51,7 +51,7 @@ Formlogin.addEventListener('submit', (e) => {
             if(email=='fastfood@gmail.com' && contraseña=='fastfood'){
                 window.location.replace("Pedidos.html");
             }else{
-            window.location.replace("producto.html");
+                window.location.replace("producto.html");
                 }
             }
         })
@@ -79,7 +79,7 @@ btngoogle.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
     })
     .catch(err=>{
         console.log(err)
@@ -97,7 +97,7 @@ btnfacebook.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
     })
     .catch(err=>{
         console.log(err)
