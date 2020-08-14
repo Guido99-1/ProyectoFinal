@@ -105,37 +105,3 @@ btnfacebook.addEventListener('click', e=>{
 })
 
 
-//Traer productos
-
-const producto=document.querySelector('.products');
-const datos=data =>{
-    if(data.length){
-        let html='';
-        data.forEach(doc =>{
-            const pots =doc.data()
-            const li=`
-            <li class="list-group-item list-group-item-action">
-                <h5>${pots.Producto}</h5>
-                <h3> ${pots.Precio}</h3>
-                <h3> ${pots.Marca}</h3>
-            </li>
-            `;
-            html+=li;
-        });
-        producto.innerHTML=html;
-    }
-}
-//events
-//lista de productos a usuarios login
-
-auth.onAuthStateChanged(user =>{
-    if(user){
-        fs.collection('Productos')
-        .get()
-        .then((snapshot)=>{
-            datos(snapshot.docs)
-        })
-    }else{
-        datos([])
-    }
-})

@@ -40,42 +40,7 @@
         <!--Carucel-->
     </header>
     <main>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
-            style="padding-left: 50px;padding-right: 50px; padding-top: 5px;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="imagenes/fast.jpg" alt="First slide" class="img-responsive">
-                </div>
-                <div class="carousel-item" style="height: auto;">
-                    <img class="d-block w-100" src="imagenes/foot.jpg" alt="Second slide" class="img-responsive">
-                </div>
-                <div class="carousel-item" style="height: auto;">
-                    <img class="d-block w-100" src="imagenes/foot2.jpg" alt="Third slide" class="img-responsive">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
-        </div>
 
-        <!--Productos-->
-        <h1 style="color: cadetblue;text-align: center;">Productos</h1>
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="list-group posts">
-                        <ul class="list-group products">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
     <section>
 
     </section>
@@ -113,28 +78,26 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-firestore.js"></script>
 
     <script>
         // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBhwIe7FsFiOvfSEIFg9tqP6fKicGAiHJ8",
-            authDomain: "fir-code-6be74.firebaseapp.com",
-            databaseURL: "https://fir-code-6be74.firebaseio.com",
-            projectId: "fir-code-6be74",
-            storageBucket: "fir-code-6be74.appspot.com",
-            messagingSenderId: "101738506409",
-            appId: "1:101738506409:web:205979f3bef7e23702a1b8"
+        const firebaseConfig = {
+            apiKey: "AIzaSyDdW3EBZdYZKRaL7XKCzaysLlHs_pMlMFQ",
+            authDomain: "wenfin-8d21c.firebaseapp.com",
+            databaseURL: "https://wenfin-8d21c.firebaseio.com",
+            projectId: "wenfin-8d21c",
+            storageBucket: "wenfin-8d21c.appspot.com",
+            messagingSenderId: "4264902152",
+            appId: "1:4264902152:web:a73170e446c656a5981bbd"
         };
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
 
+        firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const fs = firebase.firestore();
     </script>
-
     <script src="main.js"></script>
 </body>
 
