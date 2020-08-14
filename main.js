@@ -23,7 +23,7 @@ formulario.addEventListener('submit', (e) => {
             //close the modal
             $('#signupModal').modal('hide')
             console.log('sign up');
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
         })
 });
 ////LOGIN
@@ -79,7 +79,7 @@ btngoogle.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
     })
     .catch(err=>{
         console.log(err)
@@ -97,7 +97,7 @@ btnfacebook.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("cliente.html");
+            window.location.replace("producto.html");
     })
     .catch(err=>{
         console.log(err)
