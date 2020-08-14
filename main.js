@@ -1,4 +1,4 @@
-function hacer_click()
+function mi_funcion()
 {
     $('#loginModal').modal('hide')
     $("#signupModal").modal("show");
@@ -35,17 +35,23 @@ Formlogin.addEventListener('submit', (e) => {
     const email = document.querySelector('#loginemail').value;
     const contraseña = document.querySelector('#loginpassword').value;
     //console.log(email,contraseña)
-
+    
     auth
         .signInWithEmailAndPassword(email, contraseña)
         .then(userCredential => {
             //clear the form
             formulario.reset();
-
             //close the modal
             $('#signupModal').modal('hide')
             console.log('sign up');
-            window.location.replace("cliente.html");
+            
+            if(email=='admin@gmail.com' && contraseña=='admin1'){
+                window.location.replace("Pedidos.html");
+            }if(email=='fastfood@gmail.com' && contraseña=='fastfood'){
+                window.location.replace("Pedidos.html");
+            }else{
+                window.location.replace("cliente.html");
+            }
         })
          .catch(err=>{
             alert('Contraseña o correo INCORRECTOS')
@@ -66,11 +72,7 @@ Formlogin.addEventListener('submit', (e) => {
 const btngoogle= document.querySelector('#googlelogin')
 btngoogle.addEventListener('click', e=>{
     const google= new firebase.auth.GoogleAuthProvider();
-
-
     auth.signInWithPopup(google)
-
-    
     .then(result =>{
         formulario.reset();
             $('#loginModal').modal('hide')
