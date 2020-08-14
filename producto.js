@@ -34,7 +34,6 @@ $(document).ready(function () {
 
         $.each(productos, function (indice, valor) {
             var prevProducto ='<tr>';
-            
             prevProducto+='<th scope="row">'+valor.articulo+'</th>';
             prevProducto+='<th>'+valor.precio+'</th>';
             prevProducto+='<th>'+'<img src="' + valor.imagen + '"/>'+'</th>';
@@ -48,5 +47,3 @@ $(document).ready(function () {
     });
 
 });
-
-//prevProducto+=' <th>'+'<a>'+AGREGAR+'</a>'+'</th>';
