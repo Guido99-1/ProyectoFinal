@@ -34,13 +34,15 @@ $(document).ready(function () {
 
         $.each(productos, function (indice, valor) {
             var prevProducto ='<tr>';
-            prevProducto+='<th scope="row">'+valor.articulo+'</th>';
+            if(valor.articulo == 'Pizza'){
+            prevProducto+='<th scope="row" id="nombre">'+valor.articulo+'</th>';
             prevProducto+='<th>'+valor.precio+'</th>';
             prevProducto+='<th>'+'<img src="' + valor.imagen + '"/>'+'</th>';
             prevProducto+='<th>'+valor.descripcion+'</th>';
-            prevProducto+='<th scope="row">'+'<a  href="productos.html">'+'<button type="button" class="btn btn-dark" id="'+valor.articulo+'">'+'AGREGAR'+'</button>'+'</th>';
+            prevProducto+='<th scope="row">'+'<a  href="productos.html">'+'<button type="button"  class="btn btn-dark" id="'+valor.articulo+'">'+'AGREGAR'+'</button>'+'</th>';
             prevProducto+='</tr>'
             $(prevProducto).appendTo('#listado');
+            }
         });
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);

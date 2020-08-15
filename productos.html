@@ -9,6 +9,11 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="css/index.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+        <script src="consulta.js"></script>
+
 </head>
 <body>
     <header>
@@ -69,6 +74,9 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="tablasProducto">
                     <thead class="thead-dark">
+                        <select onchange="actualizar()" id="Medica" class="form-control">
+                            <option disabled selected>Selecciona un Producto</option>
+                            </select>
                         <tr>
                             <th scope="col">imagen</th>
                             <th scope="col">Descripcion</th>
@@ -76,22 +84,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" rowspan="6"><input type="image" src="imagenes/fast.jpg"></th>
+                            <th scope="row" rowspan="6"><input id="imagen" type="image" src="imagenes/fast.jpg"></th>
                         </tr>
                         <tr>
-                            <th scope="row">Nombre: <input type="text"></th>
-                        </tr>
-                        <tr>
-                            
-                            <th scope="row">Precio :<input type="number" readonly style="margin-left: 16px;"></th>
+                            <th scope="row">Nombre: <input id="nombre" type="text"></th>
                         </tr>
                         <tr>
                             
-                            <th scope="row">Cantidad: <input type="number"></th>
+                            <th scope="row">Precio :<input  id="precio" type="number" readonly style="margin-left: 16px;"></th>
                         </tr>
                         <tr>
                             
-                            <th scope="row">Subtotal: <input type="number" readonly style="margin-left: 4px;"></th>
+                            <th scope="row">Cantidad: <input id="cantidad" type="number" onchange="subtotal()"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Subtotal: <input id="subtotal" type="number" readonly style="margin-left: 4px;"></th>
                         </tr>
                         <tr style="align-items: center;">
                             <th><button type="button" class="btn btn-dark">Agregar al carrito</button>
@@ -132,7 +139,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-
+      
 </body>
 
 </html>
