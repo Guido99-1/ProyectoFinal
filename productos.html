@@ -56,7 +56,7 @@
                             <th scope="row" rowspan="6"><input id="imagen" type="image" src="imagenes/fast.jpg"></th>
                         </tr>
                         <tr>
-                            <th scope="row">Nombre: <input id="nombre" type="text"></th>
+                            <th scope="row">Nombre: <input id="nombre" name="nombre" type="text"></th>
                         </tr>
                         <tr>
                             
@@ -67,11 +67,13 @@
                             <th scope="row">Cantidad: <input id="cantidad" type="number" onchange="subtotal()"></th>
                         </tr>
                         <tr>
-                            <th scope="row">Subtotal: <input id="subtotal" type="number" readonly style="margin-left: 4px;"></th>
+                            <th scope="row">Subtotal: <input id="subtotal"  name="subtotal" type="number" readonly style="margin-left: 4px;"></th>
                         </tr>
                         <tr style="align-items: center;">
+
                             <th><button type="button" class="btn btn-dark" onclick="carrito()">Agregar al carrito</button>
                             <!-- <button type="button" class="btn btn-dark">nuevo producto</button></th> -->
+
                         </tr>
                     </tbody>
                 </table>
