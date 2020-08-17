@@ -14,7 +14,6 @@ $(document).ready(function()
 
     var database = firebase.database();
 
-    
     var articulo;
     var descripcion;
     var precio;
