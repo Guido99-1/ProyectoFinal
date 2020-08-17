@@ -40,42 +40,10 @@
     </header>
     <main>
         <section>
-            <!-- <table class="table" id="tablasProducto">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" style="width: 400px;">imagen</th>
-                        <th scope="col" style="width: 400px;">Descripcion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" rowspan="6"><input type="image"></th>
-                    </tr>
-                    <tr>
-                        <th scope="row">Nombre: <input type="text"></th>
-                    </tr>
-                    <tr>
-                        
-                        <th scope="row">Precio :<input type="number" readonly style="margin-left: 16px;"></th>
-                    </tr>
-                    <tr>
-                        
-                        <th scope="row">Cantidad: <input type="number"></th>
-                    </tr>
-                    <tr>
-                        
-                        <th scope="row">Subtotal: <input type="number" readonly style="margin-left: 4px;"></th>
-                    </tr>
-                    <tr style="align-items: center;">
-                        <th><button type="button" class="btn btn-dark">Agregar al carrito</button>
-                        <button type="button" class="btn btn-dark">nuevo producto</button></th>
-                    </tr>
-                </tbody>
-            </table> -->
-            <div class="table-responsive">
+            <div class="table-responsive" style="margin-top: 30px;">
                 <table class="table table-bordered" id="tablasProducto">
                     <thead class="thead-dark">
-                        <select onchange="actualizar()" id="Medica" class="form-control">
+                        <select onchange="actualizar()" id="Medica" class="form-control" style="background-color: rgb(169, 175, 182);">
                             <option disabled selected>Selecciona un Producto</option>
                             </select>
                         <tr>
@@ -102,9 +70,14 @@
                             <th scope="row">Subtotal: <input id="subtotal"  name="subtotal" type="number" readonly style="margin-left: 4px;"></th>
                         </tr>
                         <tr style="align-items: center;">
+<<<<<<< HEAD
                             <th><button type="Button" class="btn btn-dark">Agregar al carrito</button>
                         </form>
                             <button type="button" class="btn btn-dark">nuevo producto</button></th>
+=======
+                            <th><button type="button" class="btn btn-dark" onclick="carrito()">Agregar al carrito</button>
+                            <!-- <button type="button" class="btn btn-dark">nuevo producto</button></th> -->
+>>>>>>> 19cf802e4794ce7272b923d84f4faeba96715c33
                         </tr>
                     </tbody>
                 </table>
