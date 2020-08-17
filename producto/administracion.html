@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +9,18 @@
     <link rel="stylesheet" type="text/css" href="custom.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-    <script src="nuevoproducto.js"></script>
+    <script src="administracion.js"></script>
 
-    <title>Añadir un producto</title>
+    <title>Listado Productos</title>
 </head>
+
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-green bg-dark border-bottom" style="margin-top: -64px;">
@@ -42,30 +46,27 @@
             </div>
         </nav>
         <br>
-        <br>
-        <div class="container-fluid" style="margin-bottom: 50px;">
-            <form id="formularioAlta">
-                <div class="form-group">
-                    <label for="articulo">Articulo</label>
-                    <input type="text" class="form-control" id="articulo" placeholder="Nombre del artículo">
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea class="form-control" id="descripcion" placeholder="Descripción del artículo" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="precio">Precio</label>
-                    <input type="text" class="form-control" id="precio" placeholder="Precio del artículo">
-                </div>
-                <div class="form-group">
-                    <label for="imagen">Elegir Imagen</label>
-                    <input type="file" id="imagen">
-                    <p class="help-block">Elija una imagen para este artículo</p>
-                    <img id="previsualizacion">
-                </div>
-                <button type="button" class="btn btn-primary" id="botonGuardar" disabled="disabled">Guardar</button>
-            </form>
+        <div class="table-responsive">
+            <h1>Listado de Productos</h1>
+            <div class="container-fluid" id="">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+    
+                            <th scope="col">Articulo</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Descripcion</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="listado">
+    
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
