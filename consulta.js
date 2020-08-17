@@ -71,8 +71,6 @@ function subtotal(){
 }
 
 function carrito(){
-    var nom=document.getElementById("nombre").value;
-    var prec=document.getElementById("precio").value;
-    var cant=document.getElementById("cantidad").value;
-    var subT=document.getElementById("subtotal").value;
+    $("#agregaralcarrito").css("display","block");
+    $("#tituloPedidos").css("display","block");
 }

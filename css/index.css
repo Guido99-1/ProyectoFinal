@@ -48,3 +48,10 @@
     max-width: 100%;
     height: auto;
   }
+
+#agregaralcarrito{
+    display: none;
+}
+#tituloPedidos{
+    display: none;
+}
