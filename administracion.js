@@ -33,7 +33,7 @@ referencia.on('value',function(datos)
         prevProducto+='<th>'+valor.precio+'</th>';
         prevProducto+='<th>'+'<img src="' + valor.imagen + '"/>'+'</th>';
         prevProducto+='<th>'+valor.descripcion+'</th>';
-        prevProducto+='<th scope="row">'+'<button type="button" class="btn btn-warning" onclick="editarProducto(\''+indice+'\')">Editar</button>'+'<button type="button" class="btn btn-danger" onclick="borrarProducto(\''+indice+'\')">Borrar</button>'+'</th>';
+        prevProducto+='<th scope="row">'+'<button type="button" class="btn btn-warning" onclick="editarProducto(\''+indice+'\')">Editar</button>'+'   '+'<button type="button" class="btn btn-danger" onclick="borrarProducto(\''+indice+'\')">Borrar</button>'+'</th>';
         prevProducto+='</tr>'
         $(prevProducto).appendTo('#listado');
         
