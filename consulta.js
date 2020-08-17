@@ -69,3 +69,10 @@ function subtotal(){
     var sub = document.getElementById("precio").value * document.getElementById("cantidad").value;
     document.getElementById("subtotal").value =  sub;
 }
+
+function carrito(){
+    var nom=document.getElementById("nombre").value;
+    var prec=document.getElementById("precio").value;
+    var cant=document.getElementById("cantidad").value;
+    var subT=document.getElementById("subtotal").value;
+}
