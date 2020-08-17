@@ -46,12 +46,12 @@ Formlogin.addEventListener('submit', (e) => {
             console.log('sign up');
             
             if(email=='admin@gmail.com' && contraseña=='admin1'){
-                window.location.replace("ResumenGestion.html");
+                window.location.replace("indexproducto.html");
             }else{
             if(email=='fastfood@gmail.com' && contraseña=='fastfood'){
-                window.location.replace("Pedidos.html");
+                window.location.replace("indexproducto.html");
             }else{
-                window.location.replace("producto.html");
+                window.location.replace("productos.html");
                 }
             }
         })
