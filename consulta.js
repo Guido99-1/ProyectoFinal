@@ -158,8 +158,6 @@ function carrito(){
 }
 
 
-<<<<<<< HEAD
-=======
 function enviarReporte(){
     const nombres = [];
     const cantidad = [];
@@ -229,5 +227,4 @@ function enviarReporte(){
                 });
         }
           
->>>>>>> f070e9978e1fca2859721d03c472f0b5e4e4821f
 }
