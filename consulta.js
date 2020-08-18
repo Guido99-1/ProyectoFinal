@@ -8,14 +8,16 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
-
+var numero ;
 existe = new Boolean(false)
 firebase.initializeApp(config);
 
 var database = firebase.database();
 var referencia = database.ref("productos");
+var referencia2 = database.ref("pedidos");
+var referencia3 = database.ref("detalle");
 var productos = {};
-
+var pedidos = [];
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -43,6 +45,18 @@ $(document).ready(function () {
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);
     });
+
+
+    referencia2.on('value',function(datos)
+    {
+    // Eliminamos el contenido del listado para actualizarlo.
+
+    pedidos=datos.val();
+    numero = pedidos.length;
+    // Recorremos los productos y los mostramos
+  
+
+    })
     
 });
 
@@ -86,7 +100,7 @@ function carrito(){
     var y = 0;
     var Ssub = 0;
     var iva =0;
-    var total = 0;
+    var tot = 0;
     $("#pedidos tbody tr").each(function (index) {
        
      var caso1,caso4;
@@ -137,19 +151,83 @@ function carrito(){
         document.getElementById("Subtotal").value = Ssub;
         iva = Ssub * 0.12;
         iva = iva.toFixed(2);
-        total = Ssub+iva;
-       
-
+        tot = parseFloat(Ssub)+parseFloat(iva);
         document.getElementById("Iva").value = iva;
-        document.getElementById("TOTAL").value = total;
+        document.getElementById("TOTAL").value = tot;
     }
 }
 
-function envioReporte(){
-    const datos = [];
-    
-    var subtotal =  document.getElementById("Subtotal").value;
-    var nombre =  document.getElementById("Iva").value;
-    var precio =  document.getElementById("TOTAL").value;
 
+<<<<<<< HEAD
+=======
+function enviarReporte(){
+    const nombres = [];
+    const cantidad = [];
+    const subtotal = [];
+    const precio = [];
+    const imagenes = [];
+    var sub =  document.getElementById("Subtotal").value;
+    var nomb =  document.getElementById("Iva").value;
+    var pre =  document.getElementById("TOTAL").value;
+    var a,b,c,d,e=0;
+    $("#pedidos tbody tr").each(function (index) {
+       
+        var caso0,caso1,caso2,caso3,caso4;
+          $(this).children("th").each(function (index2) {
+          switch (index2) {
+          case 0:
+           caso0 = $(this).text();
+           nombres[a]=caso0 ;
+           a = a+1;
+          break;
+          case 1:
+           caso1 = $(this).text();
+           precio[b]=caso1 ;
+           b = b+1;
+          break;
+          case 2:
+            caso2 = $(this).text();
+            imagenes[c]=caso2 ;
+            c = c+1;
+           break;
+          case 3:
+            caso3 = $(this).text();
+            cantidad[d]=caso3 ;
+            d = d+1;
+           break;
+           case 4:
+            caso4 = $(this).text();
+            subtotal[e]=caso4 ;
+            e = e+1;
+           break;
+          }
+        });
+        });
+
+        var imagen;
+        var cant;
+        var idpedido;
+        var sub;
+        for (var i = 0; i <= nombres.length; i++){
+            var articulo = nombres[i];
+            var prec = precio[i];
+            imagen = imagenes[i];
+            cant = cantidad[i];
+            sub = subtotal[i];
+            idpedido = numero;
+            referencia3.push(
+                {
+                    articulo: nombres[i],
+                    cantidad: cant,
+                    idpedido: idpedido,
+                    imagen: imagen,
+                    precio : prec,
+                    subtotal : sub
+                },function()
+                {
+                    alert('El alta se ha realizado correctamente');
+                });
+        }
+          
+>>>>>>> f070e9978e1fca2859721d03c472f0b5e4e4821f
 }
