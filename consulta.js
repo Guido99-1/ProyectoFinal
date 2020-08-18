@@ -8,14 +8,15 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
-
+var numero ;
 existe = new Boolean(false)
 firebase.initializeApp(config);
 
 var database = firebase.database();
 var referencia = database.ref("productos");
+var referencia2 = database.ref("pedidos");
 var productos = {};
-
+var pedidos = [];
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -43,6 +44,18 @@ $(document).ready(function () {
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);
     });
+
+
+    referencia2.on('value',function(datos)
+    {
+    // Eliminamos el contenido del listado para actualizarlo.
+
+    pedidos=datos.val();
+    numero = pedidos.length;
+    // Recorremos los productos y los mostramos
+  
+
+    })
     
 });
 
@@ -145,15 +158,16 @@ function carrito(){
     }
 }
 
+
 function envioReporte(){
     const nombres = [];
     const cantidad = [];
     const subtotal = [];
     const precio = [];
     const imagenes = [];
-    var subtotal =  document.getElementById("Subtotal").value;
-    var nombre =  document.getElementById("Iva").value;
-    var precio =  document.getElementById("TOTAL").value;
+    var sub =  document.getElementById("Subtotal").value;
+    var nomb =  document.getElementById("Iva").value;
+    var pre =  document.getElementById("TOTAL").value;
     var a,b,c,d,e=0;
     $("#pedidos tbody tr").each(function (index) {
        
