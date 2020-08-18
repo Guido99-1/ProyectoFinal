@@ -73,6 +73,7 @@ function subtotal(){
 
 function carrito(){
     const arti = [];
+    const sub = [];
     existe = new Boolean(false);
     $("#agregaralcarrito").css("display","block");
     $("#tituloPedidos").css("display","block");
@@ -82,9 +83,13 @@ function carrito(){
     var imagen =  document.getElementById("imagen").src;
     var cantidad =  document.getElementById("cantidad").value;
     var x = 0;
+    var y = 0;
+    var Ssub = 0;
+    var iva =0;
+    var total = 0;
     $("#pedidos tbody tr").each(function (index) {
        
-     var caso1,caso3,caso4;
+     var caso1,caso4;
        $(this).children("th").each(function (index2) {
        switch (index2) {
        case 0:
@@ -95,12 +100,13 @@ function carrito(){
        }
      });
      });
-     for (var i = 0; i <= arti.length; i++){
+     for (var i = 0; i < arti.length; i++){
         if(arti[i] == nombre){
             alert("El producto ya esta pedido");
             existe=true;
         } 
     }
+   
     if(existe == false){
     var prevProducto ='<tr>';
     prevProducto+='<th scope="row" class="nombre">'+nombre+'</th>';
@@ -110,5 +116,32 @@ function carrito(){
     prevProducto+='<th>'+subtotal+'</th>';
     prevProducto+='</tr>'
     $(prevProducto).appendTo('#listado');
+
+    $("#pedidos tbody tr").each(function (index) {
+       
+        var caso1,caso4;
+          $(this).children("th").each(function (index2) {
+          switch (index2) {
+          case 4:
+           caso4 = $(this).text();
+           sub[y]=caso4 ;
+           y = y+1;
+          break;
+          }
+        });
+        });
+
+        for (var i = 0; i < sub.length; i++){
+            Ssub = Ssub + parseFloat(sub[i]);
+        }
+        document.getElementById("Subtotal").value = Ssub;
+        iva = Ssub * 0.12;
+        iva = iva.toFixed(2);
+        total = Ssub+iva;
+       
+
+        document.getElementById("Iva").value = iva;
+        document.getElementById("TOTAL").value = total;
     }
+    
 }
