@@ -31,10 +31,9 @@ $(document).ready(function () {
 
     referencia.on('value', function (datos) {
         productos = datos.val();
-
         $.each(productos, function (indice, valor) {
             var prevProducto ='<tr>';
-            prevProducto+='<th scope="row">'+valor.articulo+'</th>';
+            prevProducto+='<th id=""articulo" scope="row">'+valor.articulo+'</th>';
             prevProducto+='<th>'+valor.precio+'</th>';
             prevProducto+='<th>'+'<img src="' + valor.imagen + '"/>'+'</th>';
             prevProducto+='<th>'+valor.descripcion+'</th>';
