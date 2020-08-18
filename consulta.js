@@ -15,6 +15,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var referencia = database.ref("productos");
 var referencia2 = database.ref("pedidos");
+var referencia3 = database.ref("detalle");
 var productos = {};
 var pedidos = [];
 $(document).ready(function () {
@@ -99,7 +100,7 @@ function carrito(){
     var y = 0;
     var Ssub = 0;
     var iva =0;
-    var total = 0;
+    var tot = 0;
     $("#pedidos tbody tr").each(function (index) {
        
      var caso1,caso4;
@@ -150,16 +151,14 @@ function carrito(){
         document.getElementById("Subtotal").value = Ssub;
         iva = Ssub * 0.12;
         iva = iva.toFixed(2);
-        total = Ssub+iva;
-       
-
+        tot = parseFloat(Ssub)+parseFloat(iva);
         document.getElementById("Iva").value = iva;
-        document.getElementById("TOTAL").value = total;
+        document.getElementById("TOTAL").value = tot;
     }
 }
 
 
-function envioReporte(){
+function enviarReporte(){
     const nombres = [];
     const cantidad = [];
     const subtotal = [];
@@ -186,7 +185,7 @@ function envioReporte(){
           break;
           case 2:
             caso2 = $(this).text();
-            imagen[c]=caso2 ;
+            imagenes[c]=caso2 ;
             c = c+1;
            break;
           case 3:
@@ -202,4 +201,30 @@ function envioReporte(){
           }
         });
         });
+
+        var imagen;
+        var cant;
+        var idpedido;
+        var sub;
+        for (var i = 0; i <= nombres.length; i++){
+            var articulo = nombres[i];
+            var prec = precio[i];
+            imagen = imagenes[i];
+            cant = cantidad[i];
+            sub = subtotal[i];
+            idpedido = numero;
+            referencia3.push(
+                {
+                    articulo: nombres[i],
+                    cantidad: cant,
+                    idpedido: idpedido,
+                    imagen: imagen,
+                    precio : prec,
+                    subtotal : sub
+                },function()
+                {
+                    alert('El alta se ha realizado correctamente');
+                });
+        }
+          
 }
