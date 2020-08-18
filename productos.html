@@ -101,9 +101,17 @@
                 <tbody id="listado">
                 </tbody>
                 <tfoot>
-                    <th scope="col" rowspan="2">Subtotal</th>
-                        <th scope="col">Iva</th>
-                        <th scope="col">TOTAL</th>
+                    <tr>
+                            
+                        <th scope="row">Subtotal :<input  id="precio" type="number" readonly style="margin-left: 16px;"></th>
+                    </tr>
+                    <tr>
+                        
+                        <th scope="row">Iva: <input id="cantidad" type="number" style="margin-left: 54px;"></th>
+                    </tr>
+                    <tr>
+                        <th scope="row">TOTAL: <input id="subtotal"  name="subtotal" type="number" readonly style="margin-left: 27px;"></th>
+                    </tr>
                 </tfoot>
             </table>
         </section>
