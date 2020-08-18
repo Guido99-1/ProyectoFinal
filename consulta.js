@@ -143,17 +143,49 @@ function carrito(){
         document.getElementById("Iva").value = iva;
         document.getElementById("TOTAL").value = total;
     }
-<<<<<<< HEAD
 }
 
 function envioReporte(){
-    const datos = [];
-    
+    const nombres = [];
+    const cantidad = [];
+    const subtotal = [];
+    const precio = [];
+    const imagenes = [];
     var subtotal =  document.getElementById("Subtotal").value;
     var nombre =  document.getElementById("Iva").value;
     var precio =  document.getElementById("TOTAL").value;
-
-=======
-    
->>>>>>> 01407571ca4f152700358908aafef85f30664288
+    var a,b,c,d,e=0;
+    $("#pedidos tbody tr").each(function (index) {
+       
+        var caso0,caso1,caso2,caso3,caso4;
+          $(this).children("th").each(function (index2) {
+          switch (index2) {
+          case 0:
+           caso0 = $(this).text();
+           nombres[a]=caso0 ;
+           a = a+1;
+          break;
+          case 1:
+           caso1 = $(this).text();
+           precio[b]=caso1 ;
+           b = b+1;
+          break;
+          case 2:
+            caso2 = $(this).text();
+            imagen[c]=caso2 ;
+            c = c+1;
+           break;
+          case 3:
+            caso3 = $(this).text();
+            cantidad[d]=caso3 ;
+            d = d+1;
+           break;
+           case 4:
+            caso4 = $(this).text();
+            subtotal[e]=caso4 ;
+            e = e+1;
+           break;
+          }
+        });
+        });
 }
