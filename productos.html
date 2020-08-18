@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,17 @@
     <!--Boostrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/index.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-        <script src="consulta.js"></script>
-        <script src="css/index.css"></script>
-        <script src="main.js"></script>
+    <script src="consulta.js"></script>
+    <script src="css/index.css"></script>
+    <script src="main.js"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,7 +32,8 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <label id="user" for="" style="padding-top: 8px;color: white;"  onload="users();" readonly></label>
+                            <label id="user" for="" style="padding-top: 8px;color: white;" onload="users();"
+                                readonly></label>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.html" id="salir">Salir</a>
@@ -44,9 +48,10 @@
             <div class="table-responsive" style="margin-top: 30px;">
                 <table class="table table-bordered" id="tablasProducto">
                     <thead class="thead-dark">
-                        <select onchange="actualizar()" id="Medica" class="form-control" style="background-color: rgb(169, 175, 182);">
+                        <select onchange="actualizar()" id="Medica" class="form-control"
+                            style="background-color: rgb(169, 175, 182);">
                             <option disabled selected>Selecciona un Producto</option>
-                            </select>
+                        </select>
                         <tr>
                             <th scope="col">imagen</th>
                             <th scope="col">Descripcion</th>
@@ -60,20 +65,23 @@
                             <th scope="row">Nombre: <input id="nombre" name="nombre" type="text"></th>
                         </tr>
                         <tr>
-                            
-                            <th scope="row">Precio :<input  id="precio" type="number" readonly style="margin-left: 16px;"></th>
+
+                            <th scope="row">Precio :<input id="precio" type="number" readonly
+                                    style="margin-left: 16px;"></th>
                         </tr>
                         <tr>
-                            
+
                             <th scope="row">Cantidad: <input id="cantidad" type="number" onchange="subtotal()"></th>
                         </tr>
                         <tr>
-                            <th scope="row">Subtotal: <input id="subtotal"  name="subtotal" type="number" readonly style="margin-left: 4px;"></th>
+                            <th scope="row">Subtotal: <input id="subtotal" name="subtotal" type="number" readonly
+                                    style="margin-left: 4px;"></th>
                         </tr>
                         <tr style="align-items: center;">
 
-                            <th><button type="button" class="btn btn-dark" onclick="carrito()">Agregar al carrito</button>
-                            <!-- <button type="button" class="btn btn-dark">nuevo producto</button></th> -->
+                            <th><button type="button" class="btn btn-dark" onclick="carrito()">Agregar al
+                                    carrito</button>
+                                <!-- <button type="button" class="btn btn-dark">nuevo producto</button></th> -->
 
                         </tr>
                     </tbody>
@@ -101,22 +109,51 @@
                 <tbody id="listado">
                 </tbody>
                 <tfoot style="right: 12px;">
-                    <tr>   
-                        <th scope="row">Subtotal :<input  id="Subtotal" type="number" readonly style="margin-left: 16px;" readonly></th>
+                    <tr>
+                        <th scope="row">Subtotal :<input id="Subtotal" type="number" readonly style="margin-left: 16px;"
+                                readonly></th>
                     </tr>
                     <tr>
-                        <th scope="row">Iva: <input id="Iva" type="number" value="12"style="margin-left: 54px;" readonly></th>
+                        <th scope="row">Iva: <input id="Iva" type="number" value="12" style="margin-left: 54px;"
+                                readonly></th>
                     </tr>
                     <tr>
-                        <th scope="row">TOTAL: <input id="TOTAL"  name="subtotal" type="number" readonly style="margin-left: 27px;" readonly></th>
+                        <th scope="row">TOTAL: <input id="TOTAL" name="subtotal" type="number" readonly
+                                style="margin-left: 27px;" readonly></th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><button type="submit" class="btn btn-dark" onclick="envioReporte()">Finalizar
+                                Compra</button></th>
                     </tr>
                 </tfoot>
             </table>
         </section>
+        <!-- Modal Correo -->
+        <div class="modal fade" id="reporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enviar Comprovante Pedido</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form">
+                            <div class="form-group">
+                                <input type="email" id="email" class="form-control" placeholder="email" required>
+                            </div>
+                            <button type="button" class="btn btn-dark"onclick="envioReporte()" >Enviar </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     </section>
- <!-- Footer -->
+    <!-- Footer -->
     <!--Boostrap Scrip-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -127,7 +164,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-      
+
 </body>
 
 </html>

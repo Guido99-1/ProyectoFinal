@@ -4,7 +4,9 @@ function mi_funcion()
     $('#loginModal').modal('hide')
     $("#signupModal").modal("show");
 }
-
+function envioReporte(){
+    $("#reporte").modal("show");
+}
 ///REGISTRO
 const formulario = document.querySelector('#form');
 formulario.addEventListener('submit', (e) => {
