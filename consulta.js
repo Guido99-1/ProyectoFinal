@@ -112,3 +112,12 @@ function carrito(){
     $(prevProducto).appendTo('#listado');
     }
 }
+
+function envioReporte(){
+    const datos = [];
+    
+    var subtotal =  document.getElementById("Subtotal").value;
+    var nombre =  document.getElementById("Iva").value;
+    var precio =  document.getElementById("TOTAL").value;
+
+}
