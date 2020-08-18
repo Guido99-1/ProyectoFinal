@@ -143,7 +143,6 @@ function carrito(){
         document.getElementById("Iva").value = iva;
         document.getElementById("TOTAL").value = total;
     }
-<<<<<<< HEAD
 }
 
 function envioReporte(){
@@ -153,7 +152,4 @@ function envioReporte(){
     var nombre =  document.getElementById("Iva").value;
     var precio =  document.getElementById("TOTAL").value;
 
-=======
-    
->>>>>>> 01407571ca4f152700358908aafef85f30664288
 }

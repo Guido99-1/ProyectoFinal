@@ -4,7 +4,7 @@ function mi_funcion()
     $('#loginModal').modal('hide')
     $("#signupModal").modal("show");
 }
-function envioReporte(){
+function correoReporte(){
     $("#reporte").modal("show");
 }
 ///REGISTRO
