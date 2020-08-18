@@ -9,6 +9,7 @@ var config = {
 
 };
 
+existe = new Boolean(false)
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -71,6 +72,43 @@ function subtotal(){
 }
 
 function carrito(){
+    const arti = [];
+    existe = new Boolean(false);
     $("#agregaralcarrito").css("display","block");
     $("#tituloPedidos").css("display","block");
+    var subtotal =  document.getElementById("subtotal").value;
+    var nombre =  document.getElementById("nombre").value;
+    var precio =  document.getElementById("precio").value;
+    var imagen =  document.getElementById("imagen").src;
+    var cantidad =  document.getElementById("cantidad").value;
+    var x = 0;
+    $("#pedidos tbody tr").each(function (index) {
+       
+     var caso1,caso3,caso4;
+       $(this).children("th").each(function (index2) {
+       switch (index2) {
+       case 0:
+        caso1 = $(this).text();
+        arti[x]=caso1 ;
+        x = x+1;
+       break;
+       }
+     });
+     });
+     for (var i = 0; i <= arti.length; i++){
+        if(arti[i] == nombre){
+            alert("El producto ya esta pedido");
+            existe=true;
+        } 
+    }
+    if(existe == false){
+    var prevProducto ='<tr>';
+    prevProducto+='<th scope="row" class="nombre">'+nombre+'</th>';
+    prevProducto+='<th>'+precio+'</th>';
+    prevProducto+='<th>'+'<img src="' + imagen+ '"/>'+'</th>';
+    prevProducto+='<th>'+ cantidad+'</th>';
+    prevProducto+='<th>'+subtotal+'</th>';
+    prevProducto+='</tr>'
+    $(prevProducto).appendTo('#listado');
+    }
 }
