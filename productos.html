@@ -15,6 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
         <script src="consulta.js"></script>
         <script src="css/index.css"></script>
+        <script src="main.js"></script>
 </head>
 <body>
     <header>
@@ -28,10 +29,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html" id="salir">Inicio</a>
+                            <label id="user" for="" style="padding-top: 8px;color: white;"  onload="users();" readonly></label>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" id="salir">Salir</a>
+                            <a class="nav-link" href="index.html" id="salir">Salir</a>
                         </li>
                     </ul>
                 </div>

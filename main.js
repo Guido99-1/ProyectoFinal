@@ -1,3 +1,4 @@
+var user="";
 function mi_funcion()
 {
     $('#loginModal').modal('hide')
@@ -19,14 +20,17 @@ formulario.addEventListener('submit', (e) => {
         .then(userCredential => {
             //clear the form
             formulario.reset();
-
+            user=email;
             //close the modal
             $('#signupModal').modal('hide')
             console.log('sign up');
-            window.location.replace("producto.html");
+            window.location.replace("productos.html");
         })
 });
 ////LOGIN
+function users(){
+    $("#user").val(user);
+}
 
 const Formlogin = document.querySelector('#formlogin');
 Formlogin.addEventListener('submit', (e) => {
