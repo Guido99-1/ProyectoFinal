@@ -46,12 +46,12 @@ Formlogin.addEventListener('submit', (e) => {
             console.log('sign up');
             
             if(email=='admin@gmail.com' && contraseña=='admin1'){
-                window.location.replace("ResumenGestion.html");
+                window.location.replace("indexproducto.html");
             }else{
             if(email=='fastfood@gmail.com' && contraseña=='fastfood'){
-                window.location.replace("Pedidos.html");
+                window.location.replace("pedidos.html");
             }else{
-                window.location.replace("producto.html");
+                window.location.replace("productos.html");
                 }
             }
         })
@@ -79,7 +79,7 @@ btngoogle.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("producto.html");
+            window.location.replace("productos.html");
     })
     .catch(err=>{
         console.log(err)
@@ -97,7 +97,7 @@ btnfacebook.addEventListener('click', e=>{
         formulario.reset();
             $('#loginModal').modal('hide')
             console.log('inicio con google')
-            window.location.replace("producto.html");
+            window.location.replace("productos.html");
     })
     .catch(err=>{
         console.log(err)

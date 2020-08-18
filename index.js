@@ -37,7 +37,7 @@ $(document).ready(function () {
             prevProducto+='<th>'+valor.precio+'</th>';
             prevProducto+='<th>'+'<img src="' + valor.imagen + '"/>'+'</th>';
             prevProducto+='<th>'+valor.descripcion+'</th>';
-            prevProducto+='<th scope="row">'+'<button type="button" class="btn btn-dark">'+'AGREGARA'+'</button>'+'</th>';
+            //prevProducto+='<th scope="row">'+'<button type="button" class="btn btn-dark">'+'AGREGARA'+'</button>'+'</th>';
             prevProducto+='</tr>'
             $(prevProducto).appendTo('#listado');
         });
