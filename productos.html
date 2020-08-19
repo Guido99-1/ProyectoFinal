@@ -128,7 +128,18 @@
                     <tr>
                         <td rowspan="5">
                             <div id="map">
-
+                            </div>
+                            <label>Ubicacion Optenida</label>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="Latitud">Latitud</label>
+                                  <span class="input-group-text" id="latitud"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="Longitud">Longitud</label>
+                                  <span class="input-group-text" id="longitud"></span>
+                                </div>
+                              </div>
                             </div>
                             <script data-require="leaflet@0.7.3" data-semver="0.7.3"
                                 src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
@@ -149,22 +160,11 @@
                     </tr>
                     <tr>
                         <th scope="row"><button type="submit" class="btn btn-dark"
-                                onclick="envioReporte(),correoReporte()">Finalizar
+                                onclick="correoReporte()">Finalizar
                                 Compra</button></th>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>Latitud:<input type="text"></td>
-                       
-                    </tr>
-                    <tr>
-                        <td>Longitud:<input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" style="align-items: center;">
-                            <button type="button" class="btn btn-dark" data-target="#ventanaMapa" data-toggle="modal">
-                                Finalizar Compra
-                            </button></td>
                     </tr>
                     <!-- 
                         <tr>

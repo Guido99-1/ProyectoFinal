@@ -17,7 +17,7 @@ var referencia = database.ref("productos");
 var referencia2 = database.ref("pedidos");
 var referencia3 = database.ref("detalle");
 var productos = {};
-
+var ingreso = 0;
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -54,6 +54,7 @@ $(document).ready(function () {
 })
 
 function actualizar(){
+    ingreso = 1;
     var elmtTable = document.getElementById('Medica'); 
     var tableRows = elmtTable.getElementsByTagName('tr'); 
     document.getElementById("cantidad").value = 1;
@@ -79,6 +80,10 @@ function subtotal(){
 }
 
 function carrito(){
+   
+    if(ingreso == 0){
+        alert("seleccione un producto");
+    }else{
     const arti = [];
     const sub = [];
    
@@ -114,6 +119,7 @@ function carrito(){
             existe=true;
         } 
     }
+
    
     if(existe == false){
     var prevProducto ='<tr>';
@@ -151,6 +157,7 @@ function carrito(){
         document.getElementById("TOTAL").value = tot;
     }
 }
+}
 
 
 function enviarReporte(){
@@ -166,6 +173,8 @@ function enviarReporte(){
     var subt =  document.getElementById("Subtotal").value;
     var iva =  document.getElementById("Iva").value;
     var total =  document.getElementById("TOTAL").value;
+    var latit = document.getElementById("latitud").innerHTML;
+    var long = document.getElementById("longitud").innerHTML;
     var a = 0;
     var b = 0;
     var c = 0;
@@ -225,7 +234,9 @@ function enviarReporte(){
                 id: nume,
                 iva: iva,
                 subtotal : subt,
-                totla : total
+                totla : total,
+                latitud:latit,
+                longitud:long
             },function()
             {
                 alert('La factura se a realizado correctamente');

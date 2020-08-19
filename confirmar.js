@@ -48,7 +48,7 @@ $(document).ready(function () {
 });
 
 
-function actualizar(){
+function    (){
     if(existe==true){
     $("#listado tr").remove(); 
     }
