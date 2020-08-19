@@ -52,7 +52,7 @@ function    (){
     if(existe==true){
     $("#listado tr").remove(); 
     }
-
+    $("#map").css("display","block");
     var id = document.getElementById('Medica').value; 
     referencia3.on('value', function (datos) {
         detalle = datos.val();
@@ -67,6 +67,7 @@ function    (){
             $(prevProducto).appendTo('#listado');
         }
     });
+    
    existe=true;
 });
 };
