@@ -8,6 +8,10 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
+<<<<<<< HEAD
+var numero;
+=======
+>>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
 existe = new Boolean(false)
 firebase.initializeApp(config);
 var numero = 0;
@@ -20,10 +24,10 @@ var productos = {};
 
 $(document).ready(function () {
     // Inicializar la base de datos
-  
+
     // Fijarse que la ruta de partida ahora es la colección productos:
-  
-   
+
+
     /*
     Evento: value
 
@@ -32,7 +36,7 @@ $(document).ready(function () {
     The event callback is passed a snapshot containing all data at that location, including child data. In our code example above,
     value returned all of the blog posts in our app. Everytime a new blog post is added, the callback function will return all of the posts.
     */
-   var select = document.getElementById("Medica");
+    var select = document.getElementById("Medica");
     referencia.on('value', function (datos) {
         productos = datos.val();
 
@@ -40,11 +44,26 @@ $(document).ready(function () {
             var nuevo = document.createElement("option");
             nuevo.value = valor.articulo;
             nuevo.innerHTML = valor.articulo;
-            select.options.add(nuevo);   
+            select.options.add(nuevo);
         });
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);
     });
+<<<<<<< HEAD
+
+
+    referencia2.on('value', function (datos) {
+        // Eliminamos el contenido del listado para actualizarlo.
+
+        pedidos = datos.val();
+        numero = pedidos.length;
+        // Recorremos los productos y los mostramos
+
+
+    })
+
+});
+=======
     referencia2.on('value', function (datos) {
         pedidos = datos.val();
         $.each(pedidos, function (indice, valor) {
@@ -52,24 +71,35 @@ $(document).ready(function () {
         });
     });
 })
+>>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
 
-function actualizar(){
-    var elmtTable = document.getElementById('Medica'); 
-    var tableRows = elmtTable.getElementsByTagName('tr'); 
+function actualizar() {
+    var elmtTable = document.getElementById('Medica');
+    var tableRows = elmtTable.getElementsByTagName('tr');
     document.getElementById("cantidad").value = 1;
-    
+
     var articulo;
     referencia.on('value', function (datos) {
-    articulo= document.getElementById("Medica").value;
-    $.each(productos, function (indice, valor) {
-        var prevProducto ='<tr>';
-        if(valor.articulo == articulo){
-        document.getElementById("nombre").value = valor.articulo;
-        document.getElementById("precio").value = valor.precio;
-        $('#imagen').attr('src',valor.imagen);
-        document.getElementById("subtotal").value = valor.precio;
-        }
+        articulo = document.getElementById("Medica").value;
+        $.each(productos, function (indice, valor) {
+            var prevProducto = '<tr>';
+            if (valor.articulo == articulo) {
+                document.getElementById("nombre").value = valor.articulo;
+                document.getElementById("precio").value = valor.precio;
+                $('#imagen').attr('src', valor.imagen);
+                document.getElementById("subtotal").value = valor.precio;
+            }
+        });
     });
+};
+
+function subtotal() {
+    if(document.getElementById("cantidad").value<1){
+        alert("Error al ingresar cantidad")
+        document.getElementById("cantidad").value=1;
+    }else{
+        var sub = document.getElementById("precio").value * document.getElementById("cantidad").value;
+    document.getElementById("subtotal").value = sub;
 });
 }
 
@@ -114,34 +144,88 @@ function carrito(){
             existe=true;
         } 
     }
-   
-    if(existe == false){
-    var prevProducto ='<tr>';
-    prevProducto+='<th scope="row" class="nombre">'+nombre+'</th>';
-    prevProducto+='<th>'+precio+'</th>';
-    prevProducto+='<th>'+'<img src="' + imagen+ '"/>'+'</th>';
-    prevProducto+='<th>'+ cantidad+'</th>';
-    prevProducto+='<th>'+subtotal+'</th>';
-    prevProducto+='</tr>'
-    $(prevProducto).appendTo('#listado');
+    
+}
 
-    $("#pedidos tbody tr").each(function (index) {
-       
-        var caso1,caso4;
-          $(this).children("th").each(function (index2) {
-          switch (index2) {
-          case 4:
-           caso4 = $(this).text();
-           sub[y]=caso4 ;
-           y = y+1;
-          break;
-          }
-        });
-        });
+function carrito() {
+    var n=document.getElementById("nombre").innerHTML;
+    if (n != "") {
+        
+        const arti = [];
+        const sub = [];
+        existe = new Boolean(false);
+        $("#agregaralcarrito").css("display", "block");
+        $("#tituloPedidos").css("display", "block");
+        var subtotal = document.getElementById("subtotal").value;
+        var nombre = document.getElementById("nombre").value;
+        var precio = document.getElementById("precio").value;
+        var imagen = document.getElementById("imagen").src;
+        var cantidad = document.getElementById("cantidad").value;
+        var x = 0;
+        var y = 0;
+        var Ssub = 0;
+        var iva = 0;
+        var tot = 0;
+        $("#pedidos tbody tr").each(function (index) {
 
-        for (var i = 0; i < sub.length; i++){
-            Ssub = Ssub + parseFloat(sub[i]);
+            var caso1, caso4;
+            $(this).children("th").each(function (index2) {
+                switch (index2) {
+                    case 0:
+                        caso1 = $(this).text();
+                        arti[x] = caso1;
+                        x = x + 1;
+                        break;
+                }
+            });
+        });
+        for (var i = 0; i < arti.length; i++) {
+            if (arti[i] == nombre) {
+                alert("El producto ya esta pedido");
+                existe = true;
+            }
         }
+
+        if (existe == false) {
+            var prevProducto = '<tr>';
+            prevProducto += '<th scope="row" class="nombre">' + nombre + '</th>';
+            prevProducto += '<th>' + precio + '</th>';
+            prevProducto += '<th>' + '<img src="' + imagen + '"/>' + '</th>';
+            prevProducto += '<th>' + cantidad + '</th>';
+            prevProducto += '<th>' + subtotal + '</th>';
+            prevProducto += '</tr>'
+            $(prevProducto).appendTo('#listado');
+
+            $("#pedidos tbody tr").each(function (index) {
+
+                var caso1, caso4;
+                $(this).children("th").each(function (index2) {
+                    switch (index2) {
+                        case 4:
+                            caso4 = $(this).text();
+                            sub[y] = caso4;
+                            y = y + 1;
+                            break;
+                    }
+                });
+            });
+
+            for (var i = 0; i < sub.length; i++) {
+                Ssub = Ssub + parseFloat(sub[i]);
+            }
+            document.getElementById("Subtotal").value = Ssub;
+            iva = Ssub * 0.12;
+            iva = iva.toFixed(2);
+            tot = parseFloat(Ssub) + parseFloat(iva);
+            document.getElementById("Iva").value = iva;
+            document.getElementById("TOTAL").value = tot;
+        }
+<<<<<<< HEAD
+    } else {
+         alert("Selecciones un producto");
+         $("#agregaralcarrito").css("display", "none");
+         $("#tituloPedidos").css("display", "none");
+=======
         document.getElementById("Subtotal").value = Ssub;
         iva = Ssub * 0.12;
         iva = iva.toFixed(2);
@@ -149,15 +233,54 @@ function carrito(){
         tot =tot.toFixed(2);
         document.getElementById("Iva").value = iva;
         document.getElementById("TOTAL").value = tot;
+>>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
     }
 }
 
 
-function enviarReporte(){
+function enviarReporte() {
     const nombres = [];
     const cantidad = [];
     const subtotal = [];
     const precio = [];
+<<<<<<< HEAD
+    const imagenes = [];
+    var sub = document.getElementById("Subtotal").value;
+    var nomb = document.getElementById("Iva").value;
+    var pre = document.getElementById("TOTAL").value;
+    var a, b, c, d, e = 0;
+    $("#pedidos tbody tr").each(function (index) {
+
+        var caso0, caso1, caso2, caso3, caso4;
+        $(this).children("th").each(function (index2) {
+            switch (index2) {
+                case 0:
+                    caso0 = $(this).text();
+                    nombres[a] = caso0;
+                    a = a + 1;
+                    break;
+                case 1:
+                    caso1 = $(this).text();
+                    precio[b] = caso1;
+                    b = b + 1;
+                    break;
+                case 2:
+                    caso2 = $(this).text();
+                    imagenes[c] = caso2;
+                    c = c + 1;
+                    break;
+                case 3:
+                    caso3 = $(this).text();
+                    cantidad[d] = caso3;
+                    d = d + 1;
+                    break;
+                case 4:
+                    caso4 = $(this).text();
+                    subtotal[e] = caso4;
+                    e = e + 1;
+                    break;
+            }
+=======
     var nume = numero+1;
     for (var i = 0; i < nombres.length; i++){
         numero=numero+1;
@@ -197,8 +320,35 @@ function enviarReporte(){
             e = e+1;
            break;
           }
+>>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
         });
+    });
+
+    var imagen;
+    var cant;
+    var idpedido;
+    var sub;
+    for (var i = 0; i <= nombres.length; i++) {
+        var articulo = nombres[i];
+        var prec = precio[i];
+        imagen = imagenes[i];
+        cant = cantidad[i];
+        sub = subtotal[i];
+        idpedido = numero;
+        referencia3.push({
+            articulo: nombres[i],
+            cantidad: cant,
+            idpedido: idpedido,
+            imagen: imagen,
+            precio: prec,
+            subtotal: sub
+        }, function () {
+            alert('El alta se ha realizado correctamente');
         });
+<<<<<<< HEAD
+    }
+
+=======
         var art;
         var prec;
         var cant;
@@ -231,4 +381,5 @@ function enviarReporte(){
                 alert('La factura se a realizado correctamente');
             });
           
+>>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
 }
