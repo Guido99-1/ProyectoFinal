@@ -44,7 +44,7 @@ $(document).ready(function () {
    var select = document.getElementById("Medica");
     referencia2.on('value', function (datos) {
         pedidos = datos.val();
-        var est = "false";
+        var est = "true";
         $.each(pedidos, function (indice, valor) {
             if(valor.estado == est){
             var nuevo = document.createElement("option");
@@ -73,7 +73,7 @@ function actualizar(){
     this.map.removeLayer(marker);
     }
     if(existe==true){
-    $("#listadoResumen tr").remove(); 
+    $("#listado tr").remove(); 
     }
     $("#mapaDatosPedido").css("display","block");
     var id = document.getElementById('Medica').value; 
@@ -89,7 +89,7 @@ function actualizar(){
             prevProducto+='<th>'+valor.cantidad+'</th>';
             prevProducto+='<th>'+valor.subtotal+'</th>';
             prevProducto+='</tr>'
-            $(prevProducto).appendTo('#listadoResumen');
+            $(prevProducto).appendTo('#listado');
         }
     })
     });
