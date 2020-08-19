@@ -99,6 +99,9 @@ function actualizar(){
         if(valor.id == id){
             marker = L.marker([valor.latitud, valor.longitud]).addTo(map).bindPopup('<h3>DESTINO DE ENVIO</<h3>');
             p=true;
+            document.getElementById('Subtotal').value = valor.subtotal;
+            document.getElementById('Iva').value = valor.iva;
+            document.getElementById('TOTAL').value = valor.total;
         }
     })
     });

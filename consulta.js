@@ -8,10 +8,7 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
-<<<<<<< HEAD
 var numero;
-=======
->>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
 existe = new Boolean(false)
 firebase.initializeApp(config);
 var numero = 0;
@@ -49,40 +46,19 @@ $(document).ready(function () {
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);
     });
-<<<<<<< HEAD
 
-
-    referencia2.on('value', function (datos) {
-        // Eliminamos el contenido del listado para actualizarlo.
-
-        pedidos = datos.val();
-        numero = pedidos.length;
-        // Recorremos los productos y los mostramos
-
-
-    })
-
-});
-=======
     referencia2.on('value', function (datos) {
         pedidos = datos.val();
         $.each(pedidos, function (indice, valor) {
           numero=numero+1;
         });
     });
-})
->>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
+});
 
-<<<<<<< HEAD
 function actualizar(){
     ingreso = 1;
     var elmtTable = document.getElementById('Medica'); 
     var tableRows = elmtTable.getElementsByTagName('tr'); 
-=======
-function actualizar() {
-    var elmtTable = document.getElementById('Medica');
-    var tableRows = elmtTable.getElementsByTagName('tr');
->>>>>>> 907a50f3c3dc7de110ad918265834ba4a39ce60a
     document.getElementById("cantidad").value = 1;
 
     var articulo;
@@ -100,82 +76,12 @@ function actualizar() {
     });
 };
 
-function subtotal() {
-    if(document.getElementById("cantidad").value<1){
-        alert("Error al ingresar cantidad")
-        document.getElementById("cantidad").value=1;
-    }else{
-        var sub = document.getElementById("precio").value * document.getElementById("cantidad").value;
-    document.getElementById("subtotal").value = sub;
-});
-}
-
-function subtotal(){
-    var sub = document.getElementById("precio").value * document.getElementById("cantidad").value;
-    document.getElementById("subtotal").value =  sub;
-}
-
-function carrito(){
-   
-    if(ingreso == 0){
-        alert("seleccione un producto");
-    }else{
-    const arti = [];
-    const sub = [];
-   
-    existe = new Boolean(false);
-    $("#agregaralcarrito").css("display","block");
-    $("#tituloPedidos").css("display","block");
-    var subtotal =  document.getElementById("subtotal").value;
-    var nombre =  document.getElementById("nombre").value;
-    var precio =  document.getElementById("precio").value;
-    var imagen =  document.getElementById("imagen").src;
-    var cantidad =  document.getElementById("cantidad").value;
-    var x = 0;
-    var y = 0;
-    var Ssub = 0;
-    var iva =0;
-    var tot = 0;
-    $("#pedidos tbody tr").each(function (index) {
-       
-     var caso1,caso4;
-       $(this).children("th").each(function (index2) {
-       switch (index2) {
-       case 0:
-        caso1 = $(this).text();
-        arti[x]=caso1 ;
-        x = x+1;
-       break;
-       }
-     });
-     });
-     for (var i = 0; i < arti.length; i++){
-        if(arti[i] == nombre){
-            alert("El producto ya esta pedido");
-            existe=true;
-        } 
-    }
-<<<<<<< HEAD
-
-   
-    if(existe == false){
-    var prevProducto ='<tr>';
-    prevProducto+='<th scope="row" class="nombre">'+nombre+'</th>';
-    prevProducto+='<th>'+precio+'</th>';
-    prevProducto+='<th>'+'<img src="' + imagen+ '"/>'+'</th>';
-    prevProducto+='<th>'+ cantidad+'</th>';
-    prevProducto+='<th>'+subtotal+'</th>';
-    prevProducto+='</tr>'
-    $(prevProducto).appendTo('#listado');
-=======
-    
-}
->>>>>>> 907a50f3c3dc7de110ad918265834ba4a39ce60a
-
 function carrito() {
-    var n=document.getElementById("nombre").innerHTML;
-    if (n != "") {
-        
+    if (ingreso == 0) {
+        alert("Selecciones un producto");
+        $("#agregaralcarrito").css("display", "none");
+        $("#tituloPedidos").css("display", "none");
+    } else {
         const arti = [];
         const sub = [];
         existe = new Boolean(false);
@@ -245,12 +151,8 @@ function carrito() {
             document.getElementById("Iva").value = iva;
             document.getElementById("TOTAL").value = tot;
         }
-    } else {
-         alert("Selecciones un producto");
-         $("#agregaralcarrito").css("display", "none");
-         $("#tituloPedidos").css("display", "none");
+    
     }
-}
 }
 
 
@@ -260,9 +162,6 @@ function enviarReporte() {
     const subtotal = [];
     const precio = [];
     const imagenes = [];
-    var sub = document.getElementById("Subtotal").value;
-    var nomb = document.getElementById("Iva").value;
-    var pre = document.getElementById("TOTAL").value;
     var a, b, c, d, e = 0;
     $("#pedidos tbody tr").each(function (index) {
 
@@ -295,10 +194,8 @@ function enviarReporte() {
                     e = e + 1;
                     break;
             }
-    var nume = numero+1;
-    for (var i = 0; i < nombres.length; i++){
-        numero=numero+1;
-    }
+                });
+            });        
     var est = "false";
     var subt =  document.getElementById("Subtotal").value;
     var iva =  document.getElementById("Iva").value;
@@ -310,6 +207,7 @@ function enviarReporte() {
     var c = 0;
     var d = 0;
     var e = 0;
+    numero=numero +1;
     $("#pedidos tbody tr").each(function (index) {
        
         var caso0,caso1,caso3,caso4;
@@ -352,7 +250,7 @@ function enviarReporte() {
                 {
                     articulo: art,
                     cantidad: cant,
-                    idpedido: nume,
+                    idpedido: numero,
                     precio : prec,
                     subtotal : sub
                 }
@@ -361,10 +259,10 @@ function enviarReporte() {
         referencia2.push(
             {
                 estado: est,
-                id: nume,
+                id: numero,
                 iva: iva,
                 subtotal : subt,
-                totla : total,
+                total : total,
                 latitud:latit,
                 longitud:long
             },function()

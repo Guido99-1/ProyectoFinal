@@ -18,9 +18,6 @@
     <script src="consulta.js"></script>
     <script src="css/index.css"></script>
     <script src="main.js"></script>
-<<<<<<< HEAD
-    <script src="email.js"></script>
-=======
 
     <!-- MAPA -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -36,7 +33,6 @@
         }
     </style>
 
->>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
 </head>
 
 <body>
@@ -162,7 +158,7 @@
                     </tr>
                     <tr>
                         <th scope="row"><button type="submit" class="btn btn-dark"
-                                onclick="correoReporte()">Finalizar
+                                onclick="enviarReporte()">Finalizar
                                 Compra</button></th>
                         <td></td>
                     </tr>
@@ -190,33 +186,7 @@
                 </tfoot>
             </table>
         </section>
-        <!-- Modal Correo -->
-        <div class="modal fade" id="reporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Enviar Comprovante Pedido</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form">
-                            <div class="form-group">
-                                <input type="email" id="emailreport" class="form-control" placeholder="email" required>
-                            </div>
-<<<<<<< HEAD
-                            <button type="submit" id="enviarReport" class="btn btn-dark" onclick="enviarreporte()" >Guardar </button>
-                            <button type="submit" id="enviarReport" class="btn btn-dark" onclick="enviarreportescorreo()" >Enviar </button>
-=======
-                            <button type="button" id="enviarReport" class="btn btn-dark"
-                                onclick="enviarReporte()">Enviar </button>
->>>>>>> 05de0d599286a1aca8004be48e7845b892058f77
-                        </form>
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </main>
 
