@@ -155,6 +155,12 @@ function carrito() {
     }
 }
 
+function subtotal(){
+    var cantidad = document.getElementById("cantidad").value;
+    var precio = document.getElementById("precio").value;
+    var subt = cantidad * precio;
+    document.getElementById("subtotal").value = subt;
+}
 
 function enviarReporte() {
     const nombres = [];
