@@ -8,16 +8,16 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
-var numero ;
 existe = new Boolean(false)
 firebase.initializeApp(config);
-
+var numero = 0;
+var pedidos = [];
 var database = firebase.database();
 var referencia = database.ref("productos");
 var referencia2 = database.ref("pedidos");
 var referencia3 = database.ref("detalle");
 var productos = {};
-var pedidos = [];
+
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -45,20 +45,13 @@ $(document).ready(function () {
     }, function (objetoError) {
         console.log('Error de lectura:' + objetoError.code);
     });
-
-
-    referencia2.on('value',function(datos)
-    {
-    // Eliminamos el contenido del listado para actualizarlo.
-
-    pedidos=datos.val();
-    numero = pedidos.length;
-    // Recorremos los productos y los mostramos
-  
-
-    })
-    
-});
+    referencia2.on('value', function (datos) {
+        pedidos = datos.val();
+        $.each(pedidos, function (indice, valor) {
+          numero=numero+1;
+        });
+    });
+})
 
 function actualizar(){
     var elmtTable = document.getElementById('Medica'); 
@@ -78,7 +71,7 @@ function actualizar(){
         }
     });
 });
-};
+}
 
 function subtotal(){
     var sub = document.getElementById("precio").value * document.getElementById("cantidad").value;
@@ -88,6 +81,7 @@ function subtotal(){
 function carrito(){
     const arti = [];
     const sub = [];
+   
     existe = new Boolean(false);
     $("#agregaralcarrito").css("display","block");
     $("#tituloPedidos").css("display","block");
@@ -152,27 +146,34 @@ function carrito(){
         iva = Ssub * 0.12;
         iva = iva.toFixed(2);
         tot = parseFloat(Ssub)+parseFloat(iva);
+        tot =tot.toFixed(2);
         document.getElementById("Iva").value = iva;
         document.getElementById("TOTAL").value = tot;
     }
 }
 
 
-<<<<<<< HEAD
-=======
 function enviarReporte(){
     const nombres = [];
     const cantidad = [];
     const subtotal = [];
     const precio = [];
-    const imagenes = [];
-    var sub =  document.getElementById("Subtotal").value;
-    var nomb =  document.getElementById("Iva").value;
-    var pre =  document.getElementById("TOTAL").value;
-    var a,b,c,d,e=0;
+    var nume = numero+1;
+    for (var i = 0; i < nombres.length; i++){
+        numero=numero+1;
+    }
+    var est = "false";
+    var subt =  document.getElementById("Subtotal").value;
+    var iva =  document.getElementById("Iva").value;
+    var total =  document.getElementById("TOTAL").value;
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    var d = 0;
+    var e = 0;
     $("#pedidos tbody tr").each(function (index) {
        
-        var caso0,caso1,caso2,caso3,caso4;
+        var caso0,caso1,caso3,caso4;
           $(this).children("th").each(function (index2) {
           switch (index2) {
           case 0:
@@ -185,11 +186,6 @@ function enviarReporte(){
            precio[b]=caso1 ;
            b = b+1;
           break;
-          case 2:
-            caso2 = $(this).text();
-            imagenes[c]=caso2 ;
-            c = c+1;
-           break;
           case 3:
             caso3 = $(this).text();
             cantidad[d]=caso3 ;
@@ -203,31 +199,36 @@ function enviarReporte(){
           }
         });
         });
-
-        var imagen;
+        var art;
+        var prec;
         var cant;
-        var idpedido;
         var sub;
-        for (var i = 0; i <= nombres.length; i++){
-            var articulo = nombres[i];
-            var prec = precio[i];
-            imagen = imagenes[i];
+        for (var i = 0; i < nombres.length; i++){
+            art = nombres[i];
+            prec = precio[i];
             cant = cantidad[i];
             sub = subtotal[i];
-            idpedido = numero;
+           
             referencia3.push(
                 {
-                    articulo: nombres[i],
+                    articulo: art,
                     cantidad: cant,
-                    idpedido: idpedido,
-                    imagen: imagen,
+                    idpedido: nume,
                     precio : prec,
                     subtotal : sub
-                },function()
-                {
-                    alert('El alta se ha realizado correctamente');
-                });
+                }
+                );
         }
+        referencia2.push(
+            {
+                estado: est,
+                id: nume,
+                iva: iva,
+                subtotal : subt,
+                totla : total
+            },function()
+            {
+                alert('La factura se a realizado correctamente');
+            });
           
->>>>>>> f070e9978e1fca2859721d03c472f0b5e4e4821f
 }
