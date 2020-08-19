@@ -38,7 +38,6 @@ $(document).ready(function () {
     */
 
 
-
 function actualizar3(){
     if(p==true){
     this.map.removeLayer(marker);
@@ -61,18 +60,6 @@ function actualizar3(){
             $(prevProducto).appendTo('#listadoResumen');
         }
     })
-    });
-    referencia2.on('value', function (datos) {
-        pedidos2 = datos.val();
-    $.each(pedidos2, function (indice, valor) {
-        if(valor.id == id){
-            p=true;
-            document.getElementById('Subtotal').value = valor.subtotal;
-            document.getElementById('Iva').value = valor.iva;
-            document.getElementById('TOTAL').value = valor.total;
-        }
-    })
-    });
     
     existe=true;
 };
