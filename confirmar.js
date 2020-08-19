@@ -12,8 +12,9 @@ var config = {
 var tileLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     'attribution': 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 });
-
-
+var pedidoId;
+var latit;
+var long;
 var numero ;
 existe = new Boolean(false);
 p = new Boolean(false);
@@ -26,7 +27,7 @@ var pedidos2 = {};
 var detalle = [];
 var idanterior =0 ;
 var idnuevo =0;
-var marker
+var marker;
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -99,6 +100,9 @@ function actualizar(){
         if(valor.id == id){
             marker = L.marker([valor.latitud, valor.longitud]).addTo(map).bindPopup('<h3>DESTINO DE ENVIO</<h3>');
             p=true;
+            latit = valor.latitud;
+            long = valor.longitud;
+            pedidoId = indice;
             document.getElementById('Subtotal').value = valor.subtotal;
             document.getElementById('Iva').value = valor.iva;
             document.getElementById('TOTAL').value = valor.total;
@@ -107,4 +111,23 @@ function actualizar(){
     });
     
     existe=true;
-};
+}
+function actualizarEstado(){
+    var est = "true";
+    referencia2.child(pedidoId).update(
+        {
+                estado: est,
+        }, alFinalizar);
+    }
+
+    function alFinalizar(error)
+    {
+        if (error)
+        {
+            alert('Ha habido problemas al realizar la operación: '+error.code);
+        }
+        else{
+            alert('Operación realizada con éxito !');
+            location.assign('pedidos.html');
+        }
+    }
