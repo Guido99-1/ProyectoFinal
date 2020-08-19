@@ -268,6 +268,7 @@ function enviarReporte() {
             },function()
             {
                 alert('La factura se a realizado correctamente');
+                window.location.replace("productos.html");
             });
           
 }
