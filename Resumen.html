@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
 
-  <title>Pedidos</title>
+  <title>Resumen Gestion</title>
   <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico" />
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -29,25 +29,38 @@
    crossorigin=""></script>
    <script data-require="leaflet@0.7.3" data-semver="0.7.3"
    src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-   
+
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-green bg-dark border-bottom" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="indexproducto.html">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="administracion.html" title="">Administracion</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="nuevoproducto.html" title="">Añadir Productos </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Resumen.html" title="">Gestión Pedidos </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html" title="">cerrar sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
   <!-- class="d-flex" -->
   <div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-secondary text-white" id="sidebar-wrapper">
-      <div class="container">
-        <h3><i><b>Fast FooD</b></i></h3>
-      </div>
-      <div class="sidebar-heading">Lista del Menu</div>
-      <div class="list-group list-group-flush">
-        <a href="Pedidos.html" class="list-group-item list-group-item-action bg-light">Pedidos</a>
-       
-        <a href="index.html" class="list-group-item list-group-item-action bg-light">Salir</a>
-      </div>
-    </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -61,21 +74,11 @@
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Sesion
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="index.html" style="background-color: darkslategrey;color: white;">Salir</a>
-              </div>
-            </li> -->
           </ul>
           <select onchange="actualizar()" id="Medica" class="form-control">
-            <option disabled selected>Selecciona un Pedido</option>
+            <option disabled selected>Lista de pedidos</option>
           </select>
         </div>
       </nav>
@@ -162,7 +165,7 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
-<script src="confirmar.js"></script>
+<script src="resumen.js"></script>
 </body>
 
 </html>
