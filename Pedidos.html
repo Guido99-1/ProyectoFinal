@@ -43,6 +43,7 @@
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Pedidos</a>
         <a href="ResumenGestion.html" class="list-group-item list-group-item-action bg-light">Resumen Gestión</a>
+        <a href="index.html" class="list-group-item list-group-item-action bg-light">Salir</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -61,19 +62,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li> -->
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Sesion
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="index.html">Salir</a>
-                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="index.html" style="background-color: darkslategrey;color: white;">Salir</a>
               </div>
-            </li>
+            </li> -->
           </ul>
           <select onchange="actualizar()" id="Medica" class="form-control">
             <option disabled selected>Selecciona un Producto</option>
@@ -81,7 +78,7 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <h1 class="mt-4">Pedidos</h1>
+        <h1 class="mt-4">Pedidos Por Entregar</h1>
         <div class="table-responsive">
           <table class="table" id="pedidos">
             <thead class="thead-dark">
