@@ -52,7 +52,7 @@ function actualizar(){
     if(existe==true){
     $("#listado tr").remove(); 
     }
-    $("#map").css("display","block");
+    $("#mapaDatosPedido").css("display","block");
     var id = document.getElementById('Medica').value; 
     referencia3.on('value', function (datos) {
         detalle = datos.val();
