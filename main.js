@@ -55,7 +55,7 @@ Formlogin.addEventListener('submit', (e) => {
                 window.location.replace("indexproducto.html");
             }else{
             if(email=='fastfood@gmail.com' && contraseña=='fastfood'){
-                window.location.replace("pedidos.html");
+                window.location.replace("Pedidos.html");
             }else{
                 window.location.replace("productos.html");
                 }
