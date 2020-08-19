@@ -75,7 +75,7 @@ function actualizar(){
     if(existe==true){
     $("#listado tr").remove(); 
     }
-    $("#map").css("display","block");
+    $("#mapaDatosPedido").css("display","block");
     var id = document.getElementById('Medica').value; 
     idanterior = idnuevo;
     idnuevo = id;
