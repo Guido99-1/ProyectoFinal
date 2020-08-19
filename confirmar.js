@@ -8,14 +8,25 @@ var config = {
     appId: "1:422920973317:web:0738836eb10d1e40de806c"
 
 };
+
+var tileLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    'attribution': 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+});
+
+
 var numero ;
-existe = new Boolean(false)
+existe = new Boolean(false);
+p = new Boolean(false);
 firebase.initializeApp(config);
 var database = firebase.database();
 var referencia2 = database.ref("pedidos");
 var referencia3 = database.ref("detalle");
 var pedidos = {};
+var pedidos2 = {};
 var detalle = [];
+var idanterior =0 ;
+var idnuevo =0;
+var marker
 $(document).ready(function () {
     // Inicializar la base de datos
   
@@ -47,13 +58,27 @@ $(document).ready(function () {
     });
 });
 
-
-function    (){
+var map = new L.Map('map', {
+    'center': [-1.2490800, -78.6167500],
+    'zoom': 13,
+    'layers': [tileLayer]
+});
+let iconMarker = L.icon({
+    iconUrl: 'marker.png',
+    iconSize: [60, 60],
+    iconAnchor: [30, 60]
+});
+function actualizar(){
+    if(p==true){
+    this.map.removeLayer(marker);
+    }
     if(existe==true){
     $("#listado tr").remove(); 
     }
     $("#map").css("display","block");
     var id = document.getElementById('Medica').value; 
+    idanterior = idnuevo;
+    idnuevo = id;
     referencia3.on('value', function (datos) {
         detalle = datos.val();
     $.each(detalle, function (indice, valor) {
@@ -66,8 +91,17 @@ function    (){
             prevProducto+='</tr>'
             $(prevProducto).appendTo('#listado');
         }
+    })
+    });
+    referencia2.on('value', function (datos) {
+        pedidos2 = datos.val();
+    $.each(pedidos2, function (indice, valor) {
+        if(valor.id == id){
+            marker = L.marker([valor.latitud, valor.longitud]).addTo(map).bindPopup('<h3>DESTINO DE ENVIO</<h3>');
+            p=true;
+        }
+    })
     });
     
-   existe=true;
-});
+    existe=true;
 };
